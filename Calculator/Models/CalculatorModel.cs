@@ -81,7 +81,13 @@ namespace Calculator.Models
 
         private void AddBracket()
         {
-            if (!_encloseBracketStack.Any())
+            if(Expression.Length == 0)
+            {
+                Expression = OpenBracketSign;
+                _encloseBracketStack.Push(EncloseBracketSign);
+                Result = string.Empty;
+            }
+            else if (!_encloseBracketStack.Any())
             {
                 Expression += Regex.IsMatch(Expression.Last().ToString(), @"\d") ? $"*{OpenBracketSign}" : OpenBracketSign;
                 _encloseBracketStack.Push(EncloseBracketSign);
