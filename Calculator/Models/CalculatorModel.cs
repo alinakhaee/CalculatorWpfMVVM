@@ -2,7 +2,6 @@
 using System.Globalization;
 using System.Linq;
 using System.Text.RegularExpressions;
-using System;
 using org.mariuszgromada.math.mxparser;
 
 namespace Calculator.Models
@@ -97,8 +96,8 @@ namespace Calculator.Models
 
         public void Insert(string element)
         {
-            if (Regex.IsMatch(element, @"[+\-*/%^,]"))
-                Expression += string.IsNullOrEmpty(Expression) || Regex.IsMatch(Expression, @"[+\-*/%^]$") ? string.Empty : element;
+            if (Regex.IsMatch(element, @"[+\-*/^,]"))
+                Expression += string.IsNullOrEmpty(Expression) || Regex.IsMatch(Expression, @"[+\-*/^]$") ? string.Empty : element;
             else
                 Expression += element;
 
