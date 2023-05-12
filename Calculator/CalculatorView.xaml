@@ -46,7 +46,7 @@
                     <RowDefinition/>
                 </Grid.RowDefinitions>
                 <Viewbox MaxHeight="100" Grid.Row="0" Stretch="Uniform" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
-                    <TextBox Name="InputTextBox"  BorderBrush="Transparent" TextAlignment="Center"   FontSize="35" Foreground="LightSlateGray" Text="{Binding Expression, Mode=OneWay}" TextWrapping="WrapWithOverflow" />
+                    <TextBox Name="InputTextBox"  BorderBrush="Transparent" TextAlignment="Center"   FontSize="35" Foreground="OrangeRed" Text="{Binding Expression, Mode=OneWay}" TextWrapping="WrapWithOverflow" />
                 </Viewbox>
                 <Viewbox MaxHeight="50" Grid.Row="1" Stretch="Uniform" HorizontalAlignment="Right" VerticalAlignment="Bottom">
                     <TextBox Name="ResultTextBox" VerticalContentAlignment="Bottom" HorizontalContentAlignment="Right" BorderBrush="Transparent" FontSize="35"  Foreground="LightSlateGray" Text="{Binding Result, Mode=OneWay}" TextWrapping="WrapWithOverflow"/>
@@ -121,8 +121,13 @@
                         Style="{StaticResource Actions}"
                         Content="+" />
 
+                <Button Name="ButtonPower" 
+                        Grid.Row="4" Grid.Column="3"
+                        Style="{StaticResource Actions}"
+                        Content="^" />
+                
                 <Button Name="ButtonResult" 
-                        Grid.Row="4" Grid.Column="2" Grid.ColumnSpan="2" 
+                        Grid.Row="4" Grid.Column="2" 
                         Style="{StaticResource Actions}" 
                         Command="{Binding InsertOperationCommand}"
                         CommandParameter="{x:Static models:Operations.Equal}"

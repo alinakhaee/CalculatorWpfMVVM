@@ -2,6 +2,7 @@
 using System.Globalization;
 using System.Linq;
 using System.Text.RegularExpressions;
+using System;
 using org.mariuszgromada.math.mxparser;
 
 namespace Calculator.Models
@@ -48,6 +49,23 @@ namespace Calculator.Models
             Expression = Result;
         }
 
+        private void Percentage()
+        {
+            // Use regular expression to find the last number in the expression
+            var match = Regex.Match(Expression, @"\d*\.?\d+$");
+            if (match.Success)
+            {
+                double lastNumber = double.Parse(match.Value);
+                double percentage = lastNumber / 100;
+
+                // Remove the last number from the expression and add the percentage
+                Expression = Expression.Remove(match.Index, match.Length);
+                Expression += percentage;
+
+                Result = CalculateExpression();
+            }
+        }
+
         private void Backspace()
         {
             if (string.IsNullOrEmpty(Expression)) return;
@@ -79,8 +97,8 @@ namespace Calculator.Models
 
         public void Insert(string element)
         {
-            if (Regex.IsMatch(element, @"[+\-*/%,]"))
-                Expression += string.IsNullOrEmpty(Expression) || Regex.IsMatch(Expression, @"[+\-*/%]$") ? string.Empty : element;
+            if (Regex.IsMatch(element, @"[+\-*/%^,]"))
+                Expression += string.IsNullOrEmpty(Expression) || Regex.IsMatch(Expression, @"[+\-*/%^]$") ? string.Empty : element;
             else
                 Expression += element;
 
@@ -102,6 +120,9 @@ namespace Calculator.Models
                     break;
                 case Operations.Equal:
                     Equal();
+                    break;
+                case Operations.Percentage:
+                    Percentage();
                     break;
             }
         }
