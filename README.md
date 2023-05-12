@@ -1,6 +1,6 @@
 # Simple WPF Calculator
 CalculatorWpfMVVM is a simple calculator built using the Model-View-ViewModel (MVVM) pattern in WPF. <br>
-This project was originally created by dariuszdbr, and can be found in this [link](https://github.com/dariuszdbr/CalculatorWpfMVVM). <br>
+This project was originally created by [dariuszdbr](https://github.com/dariuszdbr), and can be found in this [link](https://github.com/dariuszdbr/CalculatorWpfMVVM). <br>
 The main logic of this project is implemented in the `CalculatorModel.cs` and it uses the [mXparser](https://mathparser.org/) library to handle mathematical operations.
 <br>
 <br>
@@ -57,4 +57,4 @@ else
 
 ## Preview
 In the following image, you can see a demo of power function: <br>
-[power_demo](https://github.com/alinakhaee/CalculatorWpfMVVM/assets/47724896/4991b033-3d21-4068-ba2f-3ac9e16e9eaa)
+![power_demo](https://github.com/alinakhaee/CalculatorWpfMVVM/assets/47724896/4991b033-3d21-4068-ba2f-3ac9e16e9eaa)
